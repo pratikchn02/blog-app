@@ -3,8 +3,8 @@ const {createUser , getAllUsers , getUserByID, updateUser, deleteUser, login} = 
 const route = express.Router();
 
 
-route.post("/users", createUser );
-route.post("/login" , login)
+route.post("/signup", createUser );
+route.post("/signin" , login)
 route.get("/users", getAllUsers);
 route.get("/users/:id", getUserByID );
 route.patch("/users/:id", updateUser);

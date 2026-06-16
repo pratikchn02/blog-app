@@ -1,24 +1,29 @@
-import { useState , useEffect } from "react"
-import { Routes  , Route } from "react-router-dom"
-import Blogs from "./components/Blogs";
-import Signup from "./pages/signup";
-import Signin from "./pages/Signin";
-import CreateBlogs from "./components/CreateBlogs";
-
+import { Route, Routes } from "react-router-dom"
+import AuthForm from "./pages/authForm"
+import Navbar from "./components/Navbar"
+import HomePage from "./components/Homepage"
+import AddBlog from "./pages/AddBlog"
+import BlogPage from "./pages/BlogPage"
 
 function App() {
-  
-return(
-  <Routes>
-    <Route path = "/" element ={<Blogs/>}> </Route>
-    <Route path = "/signup" element ={<Signup/>}> </Route>
-    <Route path = "/signin" element ={<Signin/>}> </Route>
-    <Route path = "/create-blog" element={<CreateBlogs/>}> </Route>
-    <Route path = "*" element = {<h1>Kya kar rha hai</h1>}></Route>
 
-  </Routes>
-)
- 
+  return (
+    <div className="bg-slate-200 w-screen min-h-screen">
+      <Routes>
+        <Route path="/" element={<Navbar/>}>
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/signin" element={<AuthForm type={"signin"}/>}></Route>
+          <Route path="/signup" element={<AuthForm type={"signup"}/>}></Route>
+          <Route path="/add-blog" element={<AddBlog/>}></Route>
+          <Route path="/blog/:id" element={<BlogPage/>}></Route>
+          <Route path="/edit/:id" element={<AddBlog />}></Route>
+        </Route>
+       
+        <Route></Route>
+        <Route></Route>
+      </Routes>
+    </div>
+  )
 }
 
 export default App
