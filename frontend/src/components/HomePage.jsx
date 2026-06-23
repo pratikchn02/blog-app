@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FormatDate } from "../utils/formatDate";
 function HomePage() {
   const [blogs, setBlogs] = useState([]);
 
@@ -14,7 +15,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="w-[60%]">
+    <div className="w-[50%] mx-auto">
       {blogs.map((blog) => (
         <div key={blog._id}>
           <Link to={"blog/" + blog.blogId}>
@@ -27,7 +28,7 @@ function HomePage() {
                 <h2 className="font-bold text-3xl">{blog.title}</h2>
                 <h4 className="line-clamp-2">{blog.description}</h4>
                 <div className="flex gap-5">
-                    <p>{blog.createdAt}</p>
+                    <p>{FormatDate(blog.createdAt)}</p>
                   <div className="flex gap-7 ">
                     <div className="cursor-pointer flex gap-2">
 

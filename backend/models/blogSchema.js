@@ -10,6 +10,10 @@ const blogSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    content:{
+        type : Object,
+        require : true,
+    },
     blogId:{
         type : String,
         required : true,
@@ -43,7 +47,8 @@ const blogSchema = new mongoose.Schema({
             type : mongoose.Schema.Types.ObjectId,
         ref : "Comment",
         }
-    ]
+    ],
+    
 } ,
  {timestamps:true}   //todo
 )
